@@ -6,6 +6,10 @@ return require('packer').startup(function(use)
 		'nvim-telescope/telescope.nvim', tag = '0.1.0',
 		requires = { {'nvim-lua/plenary.nvim'} }
 	}
+  use {
+	  'nvim-treesitter/nvim-treesitter',
+	  run = ':TSUpdate',
+	}
   use 'neovim/nvim-lspconfig'
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-nvim-lsp'
@@ -16,5 +20,6 @@ return require('packer').startup(function(use)
   use 'folke/tokyonight.nvim'
   use 'vim-syntastic/syntastic'
   use 'alexandregv/norminette-vim'
+  use '42Paris/42header'
 end)
 
