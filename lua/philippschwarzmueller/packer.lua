@@ -18,6 +18,7 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
   use 'folke/tokyonight.nvim'
+  use { 'catppuccin/nvim', as = 'catppuccin' }
   use 'vim-syntastic/syntastic'
   use 'alexandregv/norminette-vim'
   use '42Paris/42header'
