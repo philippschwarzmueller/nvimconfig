@@ -1,0 +1,6 @@
+--local autocmd = vim.api.nvim_create_autocmd
+--
+--autocmd('FileType', {
+--	pattern = {'cpp', 'hpp'},
+--	command = 'setlocal shiftwidth = 2 tabstop = 2'
+--})
