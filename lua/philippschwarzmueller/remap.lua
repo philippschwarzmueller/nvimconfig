@@ -1,4 +1,5 @@
 local nnoremap = require("philippschwarzmueller.keymap").nnoremap
+local vnoremap = require("philippschwarzmueller.keymap").vnoremap
 
 -- OPEN NETRW
 nnoremap("<leader>pv", "<cmd>Ex<CR>")
@@ -12,3 +13,6 @@ nnoremap("<leader>wj", ":wincmd j<CR>")
 nnoremap("<leader>wk", ":wincmd k<CR>")
 nnoremap("<leader>wl", ":wincmd l<CR>")
 nnoremap("<leader>wc", ":clo<CR>")
+-- CALL CLANG-FORMAT AND FORMAT CURRENT LINE
+nnoremap("<leader>fl", ":pyf ~/.brew/Cellar/clang-format/16.0.4/share/clang/clang-format.py<CR>")
+vnoremap("<leader>fl", ":pyf ~/.brew/Cellar/clang-format/16.0.4/share/clang/clang-format.py<CR>")
