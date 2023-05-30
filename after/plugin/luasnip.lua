@@ -7,47 +7,48 @@ local insert = ls.insert_node
 local func = ls.function_node
 local choice = ls.choice_node
 local dynamicn = ls.dynamic_node
+local fmt = require("luasnip.extras.fmt").fmt
+local rep = require("luasnip.extras").rep
 
-local date = function() return {os.date('%Y-%m-%d')} end
-
-ls.add_snippets(nil, {
-	all = {
-		snip({
-			trig = "date",
-			namr = "Date",
-			dscr = "Date in the form of YYYY-MM-DD",
-		}, {
-			func(date, {}),
-		}),
-	},
-})
-
-local ocf = function() return {"class NewClass {", " public:", "  NewClass();" ,"  ~NewClass();", "};"} end
+local filename = function() return {vim.fn.expand('%:t:r')} end
+local include_name = function() return {string.upper(vim.fn.expand('%:t:r')) .. "_HPP_"} end
 
 ls.add_snippets(nil, {
 	all = {
 		snip({
-			trig = "ocf",
-			namr = "Orthodox Canonical class",
-			dscr = "Adds Orthodox Canonical class definition",
-		}, {
-			func(ocf, {}),
-		}),
+			trig = "occ",
+			name = "Orthodox Canonical Class",
+			dscr = "Adds Orthodox Canonical Class with placeholders",
+		},
+		fmt("#ifndef <>\
+#define <>\
+\
+class <> { \
+ public:\
+  <>();\
+  ~<>();\
+  <>(const <>& obj);\
+  <>& operator=(const <>& obj);\
+\
+ private:\
+  <>\
+};\
+\
+#endif  // <>", {
+		func(include_name),
+		func(include_name),
+		func(filename),
+		func(filename),
+		func(filename),
+		func(filename),
+		func(filename),
+		func(filename),
+		func(filename),
+		insert(0),
+		func(include_name),
 	},
+	{
+		delimiters = "<>"
+	})
+	)},
 })
-
---local function get_classname(args, parent, user_args)
---	return ' ' .. args[1][1] .. user_args ' '
---end
---
---ls.add_snippets(nil, {
---	all = {
---		snip({
---			trig = "ocf-og",
---			name = "Orthodox Canonical class",
---			dscr = "Adds Orthodox Canonical class definition",
---		}, {
---			text 'class ', func(get_classname, {1}), insert(1), text ' {', text ' public:', insert(1), insert(1), text '};'
---		}),
---	},
---})
