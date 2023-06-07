@@ -52,3 +52,25 @@ class <> { \
 	})
 	)},
 })
+
+ls.add_snippets(nil, {
+	all = {
+		snip({
+			trig = "iostream",
+			name = "iostream include",
+			dscr = "add #include for iostream",
+		},
+		text "#include <iostream>"
+		)}
+	})
+
+ls.add_snippets(nil, {
+	all = {
+		snip({
+			trig = "string",
+			name = "string include",
+			dscr = "add #include for string",
+		},
+		text "#include <string>"
+		)}
+	})
