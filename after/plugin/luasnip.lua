@@ -56,7 +56,7 @@ class <> { \
 ls.add_snippets(nil, {
 	all = {
 		snip({
-			trig = "iostream",
+			trig = "iiostream",
 			name = "iostream include",
 			dscr = "add #include for iostream",
 		},
@@ -67,7 +67,7 @@ ls.add_snippets(nil, {
 ls.add_snippets(nil, {
 	all = {
 		snip({
-			trig = "string",
+			trig = "istring",
 			name = "string include",
 			dscr = "add #include for string",
 		},
