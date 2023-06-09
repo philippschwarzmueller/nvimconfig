@@ -74,3 +74,14 @@ ls.add_snippets(nil, {
 		text "#include <string>"
 		)}
 	})
+
+ls.add_snippets("cpp", {
+	snip({
+		trig = "sout",
+		name = "printstream",
+		dscr = "add std::cout << insert(0) << std::endl;",
+	},
+		fmt("std::cout << \"{}\" << std::endl;",
+		{insert(0)},{})
+	)
+})
