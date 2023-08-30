@@ -23,5 +23,6 @@ return require('packer').startup(function(use)
   use 'vim-syntastic/syntastic'
   use 'alexandregv/norminette-vim'
   use '42Paris/42header'
+  use 'ThePrimeagen/harpoon'
 end)
 
