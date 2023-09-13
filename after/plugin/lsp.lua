@@ -16,6 +16,18 @@ require('lspconfig').ccls.setup{
 	end,
 }
 
+require('lspconfig').tsserver.setup({
+  init_options = {
+    preferences = {
+      importModuleSpecifierPreference = 'relative',
+      importModuleSpecifierEnding = 'minimal',
+    }
+  };
+  on_attach = function()
+    vim.keymap.set('n', '<leader>f', ":%!prettierd --stdin-filepath %<CR>")
+  end,
+})
+
 require('lspconfig').lua_ls.setup {
 	capabilities = capabilities,
 	settings = {
