@@ -17,12 +17,16 @@ return require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'L3MON4D3/LuaSnip'
   use 'saadparwaiz1/cmp_luasnip'
-  use 'folke/tokyonight.nvim'
   use { 'catppuccin/nvim', as = 'catppuccin' }
   use 'lewis6991/gitsigns.nvim'
   use 'vim-syntastic/syntastic'
+  use 'MunifTanjim/nougat.nvim'
   use 'alexandregv/norminette-vim'
   use '42Paris/42header'
+  use ({ 'stevearc/conform.nvim', config = function ()
+          require('conform').setup()
+        end,
+      })
   use 'ThePrimeagen/harpoon'
 end)
 
