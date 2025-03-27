@@ -10,9 +10,27 @@ return {
     setup = {},
   },
   {
+    "onsails/lspkind.nvim",
+  },
+  {
     "hrsh7th/nvim-cmp",
     config = function()
       local cmp = require("cmp")
+      local lspkind = require("lspkind")
+      lspkind.init({
+        symbol_map = {
+          Copilot = "CO"
+        }
+      })
+      local kind_formatter = lspkind.cmp_format({
+        mode = "symbol_text",
+        menu = {
+          buffer = "[buf]",
+          nvim_lsp = "[LSP]",
+          nvim_lua = "[api]",
+          path = "[path]",
+        }
+      })
       cmp.setup({
         mapping = cmp.mapping.preset.insert({
           ['<C-b>'] = cmp.mapping.scroll_docs(-4),
@@ -25,7 +43,15 @@ return {
           { name = 'nvim_lsp' },
         }, {
           { name = 'buffer' },
-        })
+        }),
+        formatting = {
+          fields = { "abbr", "kind", "menu" },
+          expandable_indicator = true,
+          format = function(entry, vim_item)
+            vim_item = kind_formatter(entry, vim_item)
+            return vim_item
+          end
+        },
       })
     end
   },
