@@ -1,5 +1,4 @@
 local keymap = vim.keymap
--- local opts = { noremap = true, silent = true }
 
 -- open netrw
 keymap.set("n", "<leader>pv", "<cmd>Ex<CR>")

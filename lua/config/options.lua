@@ -6,7 +6,7 @@ vim.opt.cursorline = true
 vim.opt.tabstop = 4
 vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 2
-vim.opt.listchars = { space = '·', tab = '|-' }
+vim.opt.listchars = { space = "·", tab = "|-" }
 vim.opt.list = true
 vim.opt.expandtab = true
 vim.opt.hlsearch = false
