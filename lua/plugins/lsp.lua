@@ -49,7 +49,9 @@ return {
         "lua_ls",
       }
       vim.list_extend(ensure_installed, servers_to_install)
-      require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+      require("mason-tool-installer").setup({
+        ensure_installed = ensure_installed,
+      })
       for name, config in pairs(servers) do
         if config == true then
           config = {}
@@ -61,7 +63,10 @@ return {
       end
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
-          local client = assert(vim.lsp.get_client_by_id(args.data.client_id), "need valid client")
+          local client = assert(
+            vim.lsp.get_client_by_id(args.data.client_id),
+            "need valid client"
+          )
           local settings = servers[client.name]
           if type(settings) ~= "table" then
             settings = {}
@@ -74,8 +79,18 @@ return {
           vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = 0 })
 
           vim.keymap.set("n", "<space>cr", vim.lsp.buf.rename, { buffer = 0 })
-          vim.keymap.set("n", "<space>ca", vim.lsp.buf.code_action, { buffer = 0 })
-          vim.keymap.set("n", "<space>wd", builtin.lsp_document_symbols, { buffer = 0 })
+          vim.keymap.set(
+            "n",
+            "<space>ca",
+            vim.lsp.buf.code_action,
+            { buffer = 0 }
+          )
+          vim.keymap.set(
+            "n",
+            "<space>wd",
+            builtin.lsp_document_symbols,
+            { buffer = 0 }
+          )
 
           if settings.server_capabilities then
             for k, v in pairs(settings.server_capabilities) do

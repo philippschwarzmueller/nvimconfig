@@ -4,7 +4,11 @@ local keymap = vim.keymap
 keymap.set("n", "<leader>pv", "<cmd>Ex<CR>")
 
 -- search 'n replace
-keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
+keymap.set(
+  "n",
+  "<leader>s",
+  ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>"
+)
 
 -- window/tile navigation
 keymap.set("n", "<leader>wv", ":vsp<CR>")
